@@ -3,13 +3,14 @@ import java.util.ArrayList;
 public class RamblersState extends SearchState{
   private  Coords statePoint;
 
+  //constructor
   public RamblersState( Coords sp,  int lco, int ec) {
       statePoint = sp;
       localCost = lco;
       estRemCost = ec;
       
   }
-
+  //accessors
   public int getX() {
       return statePoint.getx();
   }
@@ -17,7 +18,7 @@ public class RamblersState extends SearchState{
   public int getY() {
       return statePoint.gety();
   }
-
+  //goalPredicate
   boolean goalPredicate( Search searcher) {
        RamblersSearch rSearch = (RamblersSearch) searcher;
       int x = rSearch.getGoalxPoint();
@@ -28,12 +29,12 @@ public class RamblersState extends SearchState{
           return false;
       }
   }
-  
+    //Euclidean Algorithm
   public double getEuclids(int xNow, int yNow, int xGoal, int yGoal) {
 	return Math.sqrt((yGoal-yNow)*(yGoal-yNow)+(xGoal-xNow)*(xGoal-xNow));
 	  }
   
-
+    //getSuccessors
   public ArrayList<SearchState> getSuccessors( Search searcher) {
        RamblersSearch rSearch = (RamblersSearch) searcher;
        TerrainMap map = rSearch.getMap();
@@ -81,7 +82,7 @@ public class RamblersState extends SearchState{
       
       return successors;
   }
-
+  //sameState
   public boolean sameState( SearchState secondState) {
        RamblersState secRamblersState = (RamblersState) secondState;
       if (secRamblersState.statePoint.getx() == (statePoint.getx())) {
@@ -94,7 +95,7 @@ public class RamblersState extends SearchState{
           return false;
       }
   }
-
+  //toString
   public String toString() {
       return ("Coord state:" + statePoint.getx() +", "+ statePoint.gety());
   }

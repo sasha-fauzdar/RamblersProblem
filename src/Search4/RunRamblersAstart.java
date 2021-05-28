@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RunRamblersAstart {
 	public static void main(String[] args) {
-	TerrainMap tmap = new TerrainMap("src/tmc.pgm");
+	TerrainMap tmap = new TerrainMap("tmc.pgm");
 	Random random = new Random();
 	
 	
